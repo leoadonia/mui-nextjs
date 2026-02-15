@@ -10,6 +10,8 @@ export function Sidebar({ children }: { children: React.ReactNode }) {
   const isMobile = useMobile();
   const theme = useTheme();
 
+  const width = isMobile ? "80vw" : theme.spacing(SIDEBAR_WIDTH);
+
   if (collapsed) {
     return <></>;
   }
@@ -20,12 +22,13 @@ export function Sidebar({ children }: { children: React.ReactNode }) {
       open={!collapsed}
       onClose={toggleCollapsed}
       sx={{
-        width: theme.spacing(SIDEBAR_WIDTH),
+        width: width,
         flexShrink: 0,
         "& .MuiDrawer-paper": {
-          width: theme.spacing(SIDEBAR_WIDTH),
+          width: width,
           boxSizing: "border-box",
           border: 0,
+          background: isMobile ? theme.palette.background.paper : "transparent",
         },
       }}
     >

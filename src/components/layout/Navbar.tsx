@@ -2,11 +2,11 @@
 
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { useMobile } from "@/hooks/useMobile";
-import { Box, useTheme } from "@mui/material";
+import { Box, Paper, useTheme } from "@mui/material";
 import { SidebarToggle } from "./Sidebar";
 import { SIDEBAR_WIDTH, useSidebarStore } from "./store";
 
-const PADDING = 1;
+const PADDING = 1.5;
 
 export function Navbar() {
   const { collapsed } = useSidebarStore();
@@ -19,17 +19,18 @@ export function Navbar() {
       : theme.spacing(SIDEBAR_WIDTH + PADDING);
 
   return (
-    <div className="px-1">
-      <Box
-        className="fixed top-0 flex justify-between items-center rounded-xl bg-background-default/60 z-100 backdrop-blur-xs h-(--navbar-height)"
-        sx={{
-          width: `calc(100% - ${sidebarWidth})`,
-          px: 2,
-        }}
-      >
-        <SidebarToggle />
-        <ThemeToggle />
-      </Box>
-    </div>
+    <Box
+      component={Paper}
+      elevation={3}
+      className="fixed top-0 flex justify-between items-center rounded-xl z-100 h-(--navbar-height)"
+      sx={{
+        width: `calc(100% - ${sidebarWidth})`,
+        px: 2,
+        opacity: 0.8,
+      }}
+    >
+      <SidebarToggle />
+      <ThemeToggle />
+    </Box>
   );
 }
