@@ -374,3 +374,28 @@
   background-image: --value(--overlay-*);
   box-shadow: --value(--shadow-*);
 }
+
+@layer components {
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--mui-palette-divider);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--mui-palette-text-secondary);
+  }
+
+  :root {
+    --navbar-height: 3rem;
+  }
+}

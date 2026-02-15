@@ -1,7 +1,6 @@
-import { lightTheme } from "@/theme/theme";
+import { AppLayout } from "@/components/layout/AppLayout";
+import { ThemeRegistry } from "@/components/theme/ThemeRegistry";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import CssBaseline from "@mui/material/CssBaseline";
-import { ThemeProvider } from "@mui/material/styles";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -34,10 +33,9 @@ export default function RootLayout({
     >
       <body>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          <ThemeProvider theme={lightTheme}>
-            <CssBaseline />
-            {children}
-          </ThemeProvider>
+          <ThemeRegistry>
+            <AppLayout>{children}</AppLayout>
+          </ThemeRegistry>
         </AppRouterCacheProvider>
       </body>
     </html>

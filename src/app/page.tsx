@@ -19,7 +19,7 @@ import {
 
 export default function Home() {
   return (
-    <Container maxWidth="lg" className="my-8">
+    <Container maxWidth="lg">
       <Typography variant="h1" component="h1" className="text-center">
         Fast, Secure
       </Typography>
