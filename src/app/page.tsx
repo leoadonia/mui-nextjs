@@ -82,7 +82,7 @@ export default function Home() {
             </Button>
           </div>
         </Paper>
-        <Card>
+        <Card className="shadow-[0_0_30px] shadow-secondary-600">
           <CardHeader title="Hello MUI" />
           <CardContent>
             <Typography variant="subtitle1">This is a subtitle</Typography>

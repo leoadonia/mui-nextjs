@@ -12,7 +12,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
       component={Paper}
       display={"flex"}
       flexDirection={"row"}
-      className={`max-h-screen overflow-hidden w-full`}
+      className={`h-screen overflow-hidden w-full`}
       sx={{
         bgcolor:
           theme.palette.mode === "light"
