@@ -1,5 +1,6 @@
 "use client";
 
+import { useThemeMode } from "@/hooks/useThemeMode";
 import { Box, CardActionArea, Divider, Stack, Typography } from "@mui/material";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
@@ -18,7 +19,7 @@ export const MenuGroup = (props: MenuGroupProps) => {
     <>
       <CardActionArea
         onClick={() => setCollapsed(!collapsed)}
-        className="hover:text-success-500 rounded-lg p-2"
+        className="hover:text-secondary-500 rounded-lg p-2"
       >
         <Box
           display={"flex"}
@@ -59,12 +60,19 @@ export const Menu = (props: MenuData) => {
   const { title, icon, href } = props;
   const path = usePathname();
   const router = useRouter();
+  const { isDark } = useThemeMode();
 
-  const classes = {
-    active:
-      "rounded-lg p-2 bg-info-100 border-2 border-white shadow-gray-400 shadow-lg text-info-700",
-    inactive: "rounded-lg p-2 hover:bg-info-50",
-  };
+  const classes = isDark
+    ? {
+        active:
+          "rounded-lg p-2 bg-slate-500 border-2 border-white shadow-slate-500/80 shadow-lg text-slate-100",
+        inactive: "rounded-lg p-2 hover:bg-slate-600",
+      }
+    : {
+        active:
+          "rounded-lg p-2 bg-secondary-400 border-2 border-white shadow-gray-400 shadow-lg text-gray-50",
+        inactive: "rounded-lg p-2 hover:bg-secondary-300",
+      };
 
   return (
     <CardActionArea
