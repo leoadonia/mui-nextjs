@@ -1,20 +1,20 @@
 "use client";
 
 import {
-  Container,
-  Typography,
-  Button,
   Box,
-  Paper,
+  Button,
   Card,
-  CardHeader,
   CardContent,
-  TextField,
+  CardHeader,
   Chip,
-  Select,
-  MenuItem,
+  Container,
   FormControl,
   InputLabel,
+  MenuItem,
+  Paper,
+  Select,
+  TextField,
+  Typography,
 } from "@mui/material";
 
 export default function Home() {
@@ -82,7 +82,31 @@ export default function Home() {
             </Button>
           </div>
         </Paper>
-        <Card className="shadow-[0_0_30px] shadow-secondary-600">
+        <Card
+          className="transition-all duration-400 ease-in-out"
+          sx={{
+            "&:hover": {
+              background: "rgba(255, 255, 255, 0.06)",
+              // border: "1px solid rgba(20, 184, 166, 0.3)",
+              transform: "translateY(-8px)",
+              boxShadow: "0 20px 40px rgba(20, 184, 166, 0.15)",
+            },
+            "&::before": {
+              content: '""',
+              position: "absolute",
+              top: 0,
+              left: "-100%",
+              width: "100%",
+              height: "100%",
+              background:
+                "linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent)",
+              transition: "left 0.5s ease",
+            },
+            "&:hover::before": {
+              left: "100%",
+            },
+          }}
+        >
           <CardHeader title="Hello MUI" />
           <CardContent>
             <Typography variant="subtitle1">This is a subtitle</Typography>
